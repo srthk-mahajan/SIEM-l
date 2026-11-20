@@ -1,0 +1,6 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+scapy==2.6.0
+pyyaml==6.0.2
+pytest==8.3.3
+pywin32==306; sys_platform == "win32"

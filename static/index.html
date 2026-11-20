@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIEM-l</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">LOCAL SOC LAB</p>
+      <h1>SIEM-l</h1>
+    </div>
+    <div id="host-status" class="status-chip">Checking host</div>
+  </header>
+  <nav>
+    <button class="nav-active" data-view="overview">Overview</button>
+    <button data-view="alerts">Alerts</button>
+    <button data-view="timeline">Timeline</button>
+    <button data-view="investigation">Investigation</button>
+  </nav>
+  <main>
+    <section id="overview" class="view view-active">
+      <div class="metric-grid">
+        <article><span>Host</span><strong id="host-name">Waiting</strong></article>
+        <article><span>Last event</span><strong id="last-event">No real telemetry</strong></article>
+        <article><span>Open alerts</span><strong id="alert-count">0</strong></article>
+        <article><span>Collectors</span><strong id="collector-count">0 running</strong></article>
+      </div>
+      <div class="panel">
+        <h2>Collector status</h2>
+        <div id="collector-status"></div>
+      </div>
+      <div class="panel">
+        <h2>Threat intelligence</h2>
+        <button id="refresh-intel" type="button">Refresh local IP cache</button>
+        <p id="intel-status" class="muted">Cache is used only for event enrichment.</p>
+      </div>
+      <div class="panel">
+        <h2>Recent alerts</h2>
+        <div id="overview-alerts"></div>
+      </div>
+    </section>
+    <section id="alerts" class="view">
+      <div class="panel"><h2>Live alerts</h2><div id="alert-table"></div></div>
+    </section>
+    <section id="timeline" class="view">
+      <div class="panel"><h2>Real event timeline</h2><div id="timeline-list"></div></div>
+    </section>
+    <section id="investigation" class="view">
+      <div class="panel">
+        <h2>Evidence graph</h2>
+        <div id="investigation-empty">Select an alert to trace real source evidence.</div>
+        <svg id="graph" viewBox="0 0 900 520" role="img"></svg>
+      </div>
+      <aside class="node-detail" id="node-detail">
+        <h2>Node details</h2>
+        <p>Select a graph node.</p>
+      </aside>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
